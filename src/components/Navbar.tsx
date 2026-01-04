@@ -49,6 +49,7 @@ function Navbar() {
             )}
           </div>
           <Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link>
+          <Link to="/our-groups" className="hover:text-gray-900 transition-colors">Our Groups</Link>
         </div>
         
         <a href="/#contact" className="hidden md:block border-2 border-gray-900 text-gray-900 font-medium px-6 py-2.5 rounded-full hover:bg-gray-900 hover:text-white transition-all">Get Started</a>

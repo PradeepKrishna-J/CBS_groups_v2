@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import BlogPage from './pages/BlogPage';
+import OurGroups from './pages/OurGroups';
 import BusinessLoans from './pages/BusinessLoans';
 import MSMELoans from './pages/MSMELoans';
 import WorkingCapital from './pages/WorkingCapital';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/our-groups" element={<OurGroups />} />
         <Route path="/business-loans" element={<BusinessLoans />} />
         <Route path="/msme-loans" element={<MSMELoans />} />
         <Route path="/working-capital" element={<WorkingCapital />} />
