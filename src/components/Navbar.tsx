@@ -12,7 +12,7 @@ function Navbar() {
           <img src="https://ik.imagekit.io/pradeepkrishna07/2.png" alt="CBS Groups Logo" className="h-12 w-auto object-contain" style={{objectPosition: 'center', imageRendering: 'crisp-edges'}} />
           <div className="flex flex-col">
             <span className="text-lg font-bold text-gray-900 leading-tight">Chetana Business Solutions</span>
-            <span className="text-[10px] text-gray-600 font-medium leading-tight">BUSINESS ASSISTANCE TO SMALL & LARGE COMPANIES</span>
+            <span className="text-[10px] text-gray-600 font-medium leading-tight">EMPOWERING ENTREPRENEURS</span>
           </div>
         </Link>
         

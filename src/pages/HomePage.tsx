@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Building2, PiggyBank, Calculator, Phone, Mail, CheckCircle2, Star, ArrowRight, MapPin, Twitter, Linkedin, Facebook, Users } from 'lucide-react';
 import { SplitText } from '../components/SplitText';
+import { LoanCalculator } from '../components/LoanCalculator';
 
 function HomePage() {
   const [counters, setCounters] = useState({ years: 0, clients: 0, projects: 0, revenue: 0 });
@@ -488,6 +489,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Loan Calculator Section */}
+      <LoanCalculator />
 
       {/* Why Choose Us */}
       <section className="py-20 bg-gray-100">
