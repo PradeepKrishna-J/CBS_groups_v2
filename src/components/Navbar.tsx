@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
       <div className="bg-white backdrop-blur-md border border-gray-200/50 rounded-full shadow-lg px-8 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-4">
-          <img src="https://ik.imagekit.io/pradeepkrishna07/2.png" alt="CBS Groups Logo" className="h-12 w-auto object-contain" style={{objectPosition: 'center', imageRendering: 'crisp-edges'}} />
+          <img src="https://lh3.googleusercontent.com/p/AF1QipNzpQtjnPBu9klz6AL2U7Nk4rZJIZbEXbKZvpxC=s1360-w1360-h1020-rw" alt="CBS Groups Logo" className="h-12 w-auto object-contain" style={{objectPosition: 'center', imageRendering: 'crisp-edges'}} />
           <div className="flex flex-col">
             <span className="text-lg font-bold text-gray-900 leading-tight">Chetana Business Solutions</span>
             <span className="text-[10px] text-gray-600 font-medium leading-tight">EMPOWERING ENTREPRENEURS</span>

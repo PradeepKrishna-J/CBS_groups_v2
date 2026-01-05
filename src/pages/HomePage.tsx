@@ -90,83 +90,89 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center px-6 py-20 bg-white overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center px-6 py-24 md:py-32 bg-white overflow-hidden">
         {/* Grid Background Pattern */}
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
             {/* Left Side - Text Content */}
-            <div className="space-y-12">
-              <h1 className="text-4xl md:text-6xl font-bold text-[rgb(6,27,68)] leading-tight mb-8" style={{ fontFamily: 'Playfair Display, serif' }}>
-                <SplitText text="Leading Private Finance Solutions for " />
-                <span className="text-green-600">
-                  <SplitText text="Business Growth" />
-                </span>
-              </h1>
+            <div className="space-y-8">
+              {/* Heading */}
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[rgb(6,27,68)] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <SplitText text="Leading Private Finance Solutions for " />
+                  <span className="text-green-600">
+                    <SplitText text="Business Growth" />
+                  </span>
+                </h1>
+              </div>
+              
+              {/* Description */}
               <p className="text-base md:text-lg text-gray-600 leading-relaxed animate-fade-in-up" style={{ animationDelay: '600ms' }}>
                 We act as your primary partner, providing the funding and support you need to expand without the stress. Our goal is to make finance simple, so you can focus on leading your company to its next big milestone.
               </p>
               
               {/* Customer Testimonial Badge */}
-              <div className="flex items-center gap-4 pt-4 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+              <div className="flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: '1s' }}>
                 {/* Profile Images */}
-                <div className="flex -space-x-2">
-                  <div className="w-12 h-12 rounded-full border-3 border-white overflow-hidden flex-shrink-0">
+                <div className="flex -space-x-3">
+                  <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
-                  <div className="w-12 h-12 rounded-full border-3 border-white overflow-hidden flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
-                  <div className="w-12 h-12 rounded-full border-3 border-white overflow-hidden flex-shrink-0">
-                    <img src="https://images.unsplash.com/photo-1500648067791-00dcc994a43e?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
+                  <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
-                  <div className="w-12 h-12 rounded-full border-3 border-white overflow-hidden flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
                     <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
                 </div>
                 
                 {/* Stars and Text */}
-                <div>
-                  <div className="flex gap-1 mb-1">
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-0.5">
                     <Star className="w-5 h-5 fill-teal-600 text-teal-600" />
                     <Star className="w-5 h-5 fill-teal-600 text-teal-600" />
                     <Star className="w-5 h-5 fill-teal-600 text-teal-600" />
                     <Star className="w-5 h-5 fill-teal-600 text-teal-600" />
                     <Star className="w-5 h-5 fill-teal-600 text-teal-600" />
                   </div>
-                  <p className="text-[rgb(6,27,68)] font-semibold text-lg">1000+ Happy Customer</p>
+                  <p className="text-[rgb(6,27,68)] font-semibold text-base">1000+ Happy Customer</p>
                 </div>
               </div>
               
-              <div className="pt-6 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+              {/* CTA Button */}
+              <div className="pt-4 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
                 <a href="#contact" className="btn-primary inline-block">Book a Call</a>
               </div>
             </div>
 
             {/* Right Side - Image with Floating Widget */}
-            <div className="relative flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+            <div className="relative flex justify-center items-center animate-fade-in-up min-h-[500px] md:min-h-[600px]" style={{ animationDelay: '800ms' }}>
               {/* Main Image - Person with Phone */}
-              <div className="relative w-full h-full">
+              <div className="relative w-full max-w-lg mx-auto">
                 <img 
                   src="https://ik.imagekit.io/pradeepkrishna07/herocbs.png" 
                   alt="Business Professional" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-auto object-contain drop-shadow-2xl"
                 />
 
                 {/* Floating Widget - Loan Approved */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl animate-float" style={{ animationDelay: '0.5s' }}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle2 className="w-7 h-7 text-green-600" />
+                <div className="absolute bottom-4 left-0 md:left-4 lg:left-8 bg-white rounded-2xl p-5 shadow-2xl animate-float max-w-[280px]" style={{ animationDelay: '0.5s' }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-11 h-11 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-6 h-6 text-green-600" />
                     </div>
-                    <div>
-                      <div className="text-[rgb(6,27,68)] text-lg font-bold">Loan Approved!</div>
-                      <div className="text-gray-500 text-sm">Business Loan</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[rgb(6,27,68)] text-base font-bold">Loan Approved!</div>
+                      <div className="text-gray-500 text-xs">Business Loan</div>
                     </div>
                   </div>
-                  <div className="text-[rgb(6,27,68)] text-3xl font-bold mb-1">₹25,00,000</div>
-                  <div className="text-gray-400 text-sm">Disbursed in 48 hours</div>
+                  <div className="text-[rgb(6,27,68)] text-2xl md:text-3xl font-bold mb-1">₹25,00,000</div>
+                  <div className="text-gray-400 text-xs">Disbursed in 48 hours</div>
                 </div>
               </div>
             </div>
