@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { TrendingUp, Building2, PiggyBank, Calculator, Phone, Mail, CheckCircle2, Star, ArrowRight, MapPin, Twitter, Linkedin, Facebook, Users } from 'lucide-react';
 import { SplitText } from '../components/SplitText';
 import { LoanCalculator } from '../components/LoanCalculator';
+import heroImage from '../assets/images/CBS_mockup_image.png';
 
 function HomePage() {
   const [counters, setCounters] = useState({ years: 0, clients: 0, projects: 0, revenue: 0 });
@@ -90,12 +91,12 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center px-6 py-24 md:py-32 bg-white overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-24 md:py-32 bg-white overflow-hidden">
         {/* Grid Background Pattern */}
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
         
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="relative z-10 max-w-6xl mx-auto w-full">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Side - Text Content */}
             <div className="space-y-8">
               {/* Heading */}
@@ -151,28 +152,28 @@ function HomePage() {
             </div>
 
             {/* Right Side - Image with Floating Widget */}
-            <div className="relative flex justify-center items-center animate-fade-in-up min-h-[500px] md:min-h-[600px]" style={{ animationDelay: '800ms' }}>
+            <div className="relative flex justify-center items-center animate-fade-in-up min-h-[450px] md:min-h-[550px]" style={{ animationDelay: '800ms' }}>
               {/* Main Image - Person with Phone */}
-              <div className="relative w-full max-w-lg mx-auto">
+              <div className="relative w-full max-w-md mx-auto">
                 <img 
-                  src="https://ik.imagekit.io/pradeepkrishna07/herocbs.png" 
+                  src={heroImage} 
                   alt="Business Professional" 
                   className="w-full h-auto object-contain drop-shadow-2xl"
                 />
 
                 {/* Floating Widget - Loan Approved */}
-                <div className="absolute bottom-4 left-0 md:left-4 lg:left-8 bg-white rounded-2xl p-5 shadow-2xl animate-float max-w-[280px]" style={{ animationDelay: '0.5s' }}>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-11 h-11 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-6 h-6 text-green-600" />
+                <div className="absolute bottom-3 left-0 md:left-3 lg:left-6 bg-white rounded-2xl p-4 shadow-2xl animate-float max-w-[220px]" style={{ animationDelay: '0.5s' }}>
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-9 h-9 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-green-600" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-[rgb(6,27,68)] text-base font-bold">Loan Approved!</div>
-                      <div className="text-gray-500 text-xs">Business Loan</div>
+                      <div className="text-[rgb(6,27,68)] text-sm font-bold">Loan Approved!</div>
+                      <div className="text-gray-500 text-[10px]">Business Loan</div>
                     </div>
                   </div>
-                  <div className="text-[rgb(6,27,68)] text-2xl md:text-3xl font-bold mb-1">₹25,00,000</div>
-                  <div className="text-gray-400 text-xs">Disbursed in 48 hours</div>
+                  <div className="text-[rgb(6,27,68)] text-xl md:text-2xl font-bold mb-1">₹25,00,000</div>
+                  <div className="text-gray-400 text-[10px]">Disbursed in 48 hours</div>
                 </div>
               </div>
             </div>
