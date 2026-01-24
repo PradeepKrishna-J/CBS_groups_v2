@@ -1,55 +1,61 @@
 import { Link } from 'react-router-dom';
-import { Sparkles, CheckCircle, FileText, ArrowRight, Shield } from 'lucide-react';
+import { Sparkles, CheckCircle, FileText, ArrowRight, Shield, Upload, FileCheck, CheckSquare, Banknote } from 'lucide-react';
 
 function PersonalLoan() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-        {/* Grid Background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
+      <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-green-100/40 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl"></div>
         
-        <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-gray-200/50 shadow-sm">
-            <Sparkles className="w-4 h-4 text-green-600" />
-            <span className="text-sm font-medium text-gray-700">Financial Solutions</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif mb-8 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-            <span className="block text-gray-900">Personal Loans</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10">
-            Fulfill your personal aspirations with flexible and affordable personal loans. Whether it's for education, medical emergencies, travel, or any personal need, we provide quick approvals and competitive rates to make your dreams a reality.
-          </p>
+        <div className="relative max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-green-50 border border-green-200 animate-fade-in">
+                <Sparkles className="w-4 h-4 text-green-600" />
+                <span className="text-sm font-medium text-green-700">Personal Finance</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900 animate-slide-in-left delay-100">
+                Personal Loans
+              </h1>
+              
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed animate-slide-in-left delay-200">
+                Fulfill your personal aspirations with flexible and affordable personal loans. Whether it's for education, medical emergencies, travel, or any personal need, we provide quick approvals and competitive rates to make your dreams a reality.
+              </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
-            <Link to="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
-              Apply Now
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-green-600 text-green-600 rounded-full font-semibold hover:bg-green-50 transition-all duration-300">
-              Get Free Consultation
-            </Link>
-          </div>
+              <div className="flex flex-wrap gap-4 mb-8 animate-fade-in-up delay-300">
+                <Link to="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  Apply Now
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link to="/#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-green-600 hover:text-green-600 transition-all duration-300">
+                  Learn More
+                </Link>
+              </div>
+            </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">₹25L+</div>
-              <div className="text-sm text-gray-600">Maximum Loan Amount</div>
-            </div>
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">11%</div>
-              <div className="text-sm text-gray-600">Interest Rate Starting</div>
-            </div>
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">24hrs</div>
-              <div className="text-sm text-gray-600">Approval Time</div>
-            </div>
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
-              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">60mo</div>
-              <div className="text-sm text-gray-600">Maximum Tenure</div>
+            {/* Right Content - Feature Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-green-600 mb-2">₹25L+</div>
+                <div className="text-sm text-gray-600 font-medium">Maximum Loan Amount</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-green-600 mb-2">11%</div>
+                <div className="text-sm text-gray-600 font-medium">Interest Rate Starting</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-green-600 mb-2">24hrs</div>
+                <div className="text-sm text-gray-600 font-medium">Quick Approval</div>
+              </div>
+              <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-green-600 mb-2">60mo</div>
+                <div className="text-sm text-gray-600 font-medium">Flexible Tenure</div>
+              </div>
             </div>
           </div>
         </div>
@@ -57,30 +63,52 @@ function PersonalLoan() {
 
       {/* Key Features Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Key Features of Our Personal Loans
+            <div className="inline-block px-4 py-2 bg-purple-50 text-purple-700 rounded-full text-sm font-semibold mb-4 animate-fade-in">FEATURES</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 animate-fade-in-up">
+              Personal Loan Benefits
             </h2>
-            <p className="text-lg text-gray-600">
-              We offer competitive features designed to fulfill your personal aspirations
+            <p className="text-lg text-gray-600 animate-fade-in-up delay-100 max-w-3xl mx-auto">
+              Flexible financing options designed to fulfill your personal aspirations and financial goals
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              'Loan amount up to ₹25 Lakh',
-              'Flexible tenure from 12 to 60 months',
-              'Competitive interest rates starting from 11% p.a.',
-              'Minimal documentation required',
-              'No end-use restrictions',
-              'Quick disbursal within 24 hours'
-            ].map((feature, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                <p className="text-gray-700 leading-relaxed">{feature}</p>
-              </div>
-            ))}
+              { icon: Banknote, title: 'Quick Funds', desc: 'Get loan amount up to ₹25 Lakh disbursed within 24 hours', color: 'blue' },
+              { icon: Clock, title: 'Flexible Tenure', desc: 'Choose repayment period from 12 to 60 months', color: 'green' },
+              { icon: TrendingUp, title: 'Low Interest', desc: 'Competitive rates starting from 11% p.a.', color: 'purple' },
+              { icon: FileText, title: 'Minimal Docs', desc: 'Simple documentation process for quick approval', color: 'orange' },
+              { icon: Shield, title: 'No Restrictions', desc: 'Use funds for any personal need without restrictions', color: 'teal' },
+              { icon: CheckCircle, title: 'Fast Approval', desc: 'Get approved and disbursed within hours', color: 'pink' }
+            ].map((feature, index) => {
+              const colorClasses = {
+                blue: 'bg-blue-50 border-blue-200',
+                green: 'bg-green-50 border-green-200',
+                purple: 'bg-purple-50 border-purple-200',
+                orange: 'bg-orange-50 border-orange-200',
+                teal: 'bg-teal-50 border-teal-200',
+                pink: 'bg-pink-50 border-pink-200'
+              };
+              const iconColors = {
+                blue: 'text-blue-600',
+                green: 'text-green-600',
+                purple: 'text-purple-600',
+                orange: 'text-orange-600',
+                teal: 'text-teal-600',
+                pink: 'text-pink-600'
+              };
+              return (
+                <div key={index} className={`p-6 rounded-2xl border ${colorClasses[feature.color]} hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scale-in delay-${(index + 1) * 100}`}>
+                  <div className="mb-4">
+                    <feature.icon className={`w-10 h-10 ${iconColors[feature.color]}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -89,10 +117,10 @@ function PersonalLoan() {
       <section className="py-20 px-6 bg-gradient-to-b from-gray-50/50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 animate-fade-in-up">
               Eligibility Criteria
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up delay-100">
               Check if you qualify for our loan program
             </p>
           </div>
@@ -104,7 +132,7 @@ function PersonalLoan() {
               'Age between 21 to 60 years',
               'Good credit score (675+)'
             ].map((criterion, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50">
+              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-200">
                 <Shield className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <p className="text-gray-700 leading-relaxed">{criterion}</p>
               </div>
@@ -117,10 +145,10 @@ function PersonalLoan() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 animate-fade-in-up">
               Required Documents
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up delay-100">
               Documents needed to process your application
             </p>
           </div>
@@ -134,7 +162,7 @@ function PersonalLoan() {
               'Address proof (Utility bill/Rental agreement)',
               'Passport size photographs'
             ].map((document, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:shadow-lg transition-all duration-300">
                 <FileText className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <p className="text-gray-700 leading-relaxed">{document}</p>
               </div>
@@ -147,68 +175,38 @@ function PersonalLoan() {
       <section className="py-20 px-6 bg-gradient-to-b from-gray-50/50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 animate-fade-in-up">
               Application Process
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up delay-100">
               Simple steps to get your personal loan approved
             </p>
           </div>
 
-          <div className="relative">
-            {/* Animated Connection Line */}
-            <div className="hidden lg:block absolute top-24 left-[10%] right-[10%] h-1 bg-gradient-to-r from-green-200 via-green-300 to-green-200 rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500 to-transparent animate-shimmer"></div>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 relative">
-              {[
-                { step: '1', title: 'Submit Application', desc: 'Fill out online form with basic details', icon: '📝', delay: '0.1s' },
-                { step: '2', title: 'Documentation', desc: 'Upload required documents for verification', icon: '📄', delay: '0.2s' },
-                { step: '3', title: 'Quick Approval', desc: 'Get approval within 24 hours', icon: '✓', delay: '0.3s' },
-                { step: '4', title: 'Digital Signing', desc: 'E-sign loan agreement securely', icon: '✍️', delay: '0.4s' },
-                { step: '5', title: 'Fund Disbursal', desc: 'Amount credited to your account', icon: '💰', delay: '0.5s' }
-              ].map((item, index) => (
-                <div 
-                  key={index} 
-                  className="group relative animate-fade-in-up"
-                  style={{ animationDelay: item.delay }}
-                >
-                  {/* Card */}
-                  <div className="relative h-full p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                    {/* Step Number Badge */}
-                    <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {item.step}
-                    </div>
-                    
-                    {/* Icon */}
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {item.icon}
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {item.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {item.desc}
-                    </p>
-
-                    {/* Decorative Element */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                  </div>
-
-                  {/* Arrow for larger screens */}
-                  {index < 4 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                      <div className="text-2xl text-green-500 animate-pulse">→</div>
-                    </div>
-                  )}
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {[
+              { step: '1', title: 'Submit Application', desc: 'Fill out online form with basic details', Icon: FileText },
+              { step: '2', title: 'Documentation', desc: 'Upload required documents for verification', Icon: Upload },
+              { step: '3', title: 'Quick Approval', desc: 'Get approval within 24 hours', Icon: CheckSquare },
+              { step: '4', title: 'Digital Signing', desc: 'E-sign loan agreement securely', Icon: FileCheck },
+              { step: '5', title: 'Fund Disbursal', desc: 'Amount credited to your account', Icon: Banknote }
+            ].map((item, index) => (
+              <div key={index} className="relative p-6 rounded-2xl bg-white border border-gray-200 hover:shadow-lg transition-all duration-300">
+                <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-sm">
+                  {item.step}
                 </div>
-              ))}
-            </div>
+                
+                <item.Icon className="w-10 h-10 text-green-600 mb-4" />
+                
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {item.title}
+                </h3>
+                
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -221,7 +219,7 @@ function PersonalLoan() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
             
             <div className="relative">
-              <h2 className="text-3xl md:text-4xl font-serif text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Ready to Apply for Your Personal Loan?
               </h2>
               <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">

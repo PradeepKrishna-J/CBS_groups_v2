@@ -320,7 +320,7 @@ export function LoanCalculator() {
           {/* Right Panel - Results */}
           <div className="lg:col-span-2 space-y-6">
             {/* EMI Cards */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="hidden md:grid md:grid-cols-3 gap-6">
               {/* Monthly EMI */}
               <div className="bg-gradient-to-br from-brand to-blue-700 rounded-3xl p-6 text-white shadow-xl">
                 <div className="flex items-center gap-2 mb-3">
@@ -357,7 +357,7 @@ export function LoanCalculator() {
             </div>
 
             {/* Year-wise EMI Schedule */}
-            <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
+            <div className="hidden md:block bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
                 <div className="flex items-center justify-between mb-6">
                   <h4 className="text-xl font-bold text-gray-900">
                     Year-wise EMI Schedule

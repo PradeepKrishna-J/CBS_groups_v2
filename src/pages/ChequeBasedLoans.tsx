@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Sparkles, CheckCircle, FileText, ArrowRight, Shield } from 'lucide-react';
+import { Sparkles, CheckCircle, FileText, ArrowRight, Shield, Clock, Zap, Award, TrendingUp, Banknote, Upload, FileCheck } from 'lucide-react';
 
 function ChequeBasedLoans() {
   return (
@@ -10,7 +10,7 @@ function ChequeBasedLoans() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
         
         <div className="relative max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-gray-200/50 shadow-sm">
+          <div className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 rounded-full bg-gray-50 border border-gray-200 shadow-sm">
             <Sparkles className="w-4 h-4 text-green-600" />
             <span className="text-sm font-medium text-gray-700">Financial Solutions</span>
           </div>
@@ -35,19 +35,19 @@ function ChequeBasedLoans() {
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+            <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow-lg">
               <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">₹50L+</div>
               <div className="text-sm text-gray-600">Maximum Loan Amount</div>
             </div>
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+            <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow-lg">
               <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">15%</div>
               <div className="text-sm text-gray-600">Interest Rate Starting</div>
             </div>
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+            <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow-lg">
               <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">12hrs</div>
               <div className="text-sm text-gray-600">Approval Time</div>
             </div>
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+            <div className="p-6 rounded-2xl bg-gray-50 border border-gray-200 shadow-lg">
               <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">12mo</div>
               <div className="text-sm text-gray-600">Maximum Tenure</div>
             </div>
@@ -57,30 +57,52 @@ function ChequeBasedLoans() {
 
       {/* Key Features Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Key Features of Our Cheque Based Loans
+            <div className="inline-block px-4 py-2 bg-red-50 text-red-700 rounded-full text-sm font-semibold mb-4 animate-fade-in">FEATURES</div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 animate-fade-in-up">
+              Quick Cheque-Based Financing
             </h2>
-            <p className="text-lg text-gray-600">
-              Fast liquidity solutions against your post-dated cheques
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-fade-in-up delay-100">
+              Fast liquidity solutions against your post-dated cheques for immediate cash flow needs
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              'Loan against post-dated cheques',
-              'Loan amount up to ₹50 Lakhs',
-              'Same-day approval and disbursal',
-              'Flexible tenure from 1 to 12 months',
-              'Competitive interest rates starting from 15% p.a.',
-              'Minimal documentation required'
-            ].map((feature, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
-                <p className="text-gray-700 leading-relaxed">{feature}</p>
-              </div>
-            ))}
+              { icon: Zap, title: 'Same-Day Funds', desc: 'Get instant approval and disbursal on the same day', color: 'red' },
+              { icon: Banknote, title: 'Up to ₹50 Lakhs', desc: 'Loan against your post-dated cheques', color: 'blue' },
+              { icon: Clock, title: 'Flexible Terms', desc: 'Choose tenure from 1 to 12 months', color: 'purple' },
+              { icon: TrendingUp, title: 'Easy Access', desc: 'Minimal documentation required', color: 'green' },
+              { icon: Award, title: 'Competitive Rates', desc: 'Interest starting from 15% p.a.', color: 'orange' },
+              { icon: Shield, title: 'Secure Process', desc: 'Safe and reliable cheque discounting', color: 'teal' }
+            ].map((feature, index) => {
+              const colorClasses: { [key: string]: string } = {
+                red: 'bg-red-50 border-red-200',
+                blue: 'bg-blue-50 border-blue-200',
+                purple: 'bg-purple-50 border-purple-200',
+                green: 'bg-green-50 border-green-200',
+                orange: 'bg-orange-50 border-orange-200',
+                teal: 'bg-teal-50 border-teal-200'
+              };
+              const iconColors: { [key: string]: string } = {
+                red: 'text-red-600',
+                blue: 'text-blue-600',
+                purple: 'text-purple-600',
+                green: 'text-green-600',
+                orange: 'text-orange-600',
+                teal: 'text-teal-600'
+              };
+              return (
+                <div key={index} className={`p-6 rounded-2xl border ${colorClasses[feature.color]} hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scale-in delay-${(index + 1) * 100}`}>
+                  <div className="mb-4">
+                    <feature.icon className={`w-10 h-10 ${iconColors[feature.color]}`} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -92,7 +114,7 @@ function ChequeBasedLoans() {
             <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
               Eligibility Criteria
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up delay-100">
               Check if you qualify for our loan program
             </p>
           </div>
@@ -104,7 +126,7 @@ function ChequeBasedLoans() {
               'Minimum annual turnover of ₹15 Lakhs',
               'Satisfactory banking relationship'
             ].map((criterion, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50">
+              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-200">
                 <Shield className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <p className="text-gray-700 leading-relaxed">{criterion}</p>
               </div>
@@ -120,7 +142,7 @@ function ChequeBasedLoans() {
             <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
               Required Documents
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up delay-100">
               Documents needed to process your application
             </p>
           </div>
@@ -134,7 +156,7 @@ function ChequeBasedLoans() {
               'GST registration certificate',
               'Address proof of business'
             ].map((document, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-200 hover:shadow-lg transition-all duration-300">
                 <FileText className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                 <p className="text-gray-700 leading-relaxed">{document}</p>
               </div>
@@ -144,8 +166,8 @@ function ChequeBasedLoans() {
       </section>
 
       {/* Application Process Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-gray-50/50 to-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-serif mb-6 text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
               Application Process
@@ -155,57 +177,42 @@ function ChequeBasedLoans() {
             </p>
           </div>
 
-          <div className="relative">
-            {/* Animated Connection Line */}
-            <div className="hidden lg:block absolute top-24 left-[10%] right-[10%] h-1 bg-gradient-to-r from-green-200 via-green-300 to-green-200 rounded-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500 to-transparent animate-shimmer"></div>
+          <div className="relative max-w-5xl mx-auto">
+            {/* Progress Line */}
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gray-200">
+              <div className="h-full bg-gradient-to-r from-green-500 to-emerald-500 w-full"></div>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 relative">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
               {[
-                { step: '1', title: 'Submit Application', desc: 'Fill out online form with basic details', icon: '📝', delay: '0.1s' },
-                { step: '2', title: 'Documentation', desc: 'Upload cheques and required documents', icon: '📄', delay: '0.2s' },
-                { step: '3', title: 'Same-day Approval', desc: 'Get approval within 12 hours', icon: '✓', delay: '0.3s' },
-                { step: '4', title: 'Digital Signing', desc: 'E-sign loan agreement securely', icon: '✍️', delay: '0.4s' },
-                { step: '5', title: 'Fund Disbursal', desc: 'Amount credited to your account', icon: '💰', delay: '0.5s' }
+                { step: '01', title: 'Submit Application', desc: 'Fill out online form', Icon: FileText, color: 'green' },
+                { step: '02', title: 'Upload Documents', desc: 'Submit cheques & docs', Icon: Upload, color: 'blue' },
+                { step: '03', title: 'Same-day Approval', desc: 'Within 12 hours', Icon: CheckCircle, color: 'purple' },
+                { step: '04', title: 'E-Sign', desc: 'Digital signing', Icon: FileCheck, color: 'orange' },
+                { step: '05', title: 'Get Funds', desc: 'Account credit', Icon: Banknote, color: 'teal' }
               ].map((item, index) => (
                 <div 
                   key={index} 
-                  className="group relative animate-fade-in-up"
-                  style={{ animationDelay: item.delay }}
+                  className="relative flex flex-col items-center text-center animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {/* Card */}
-                  <div className="relative h-full p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                    {/* Step Number Badge */}
-                    <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {item.step}
-                    </div>
-                    
-                    {/* Icon */}
-                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {item.icon}
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className="text-xl font-serif font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300" style={{ fontFamily: "'Playfair Display', serif" }}>
-                      {item.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {item.desc}
-                    </p>
-
-                    {/* Decorative Element */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  {/* Step Circle */}
+                  <div className={`relative z-10 w-32 h-32 rounded-full bg-${item.color}-50 border-4 border-${item.color}-500 flex items-center justify-center mb-6 shadow-lg hover:scale-110 transition-transform duration-300`}>
+                    <item.Icon className={`w-12 h-12 text-${item.color}-600`} />
                   </div>
-
-                  {/* Arrow for larger screens */}
-                  {index < 4 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                      <div className="text-2xl text-green-500 animate-pulse">→</div>
-                    </div>
-                  )}
+                  
+                  {/* Step Number */}
+                  <div className="text-sm font-bold text-gray-400 mb-2">STEP {item.step}</div>
+                  
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {item.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-sm text-gray-600">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>

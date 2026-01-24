@@ -266,9 +266,9 @@ function AboutPage() {
           </div>
 
           {/* Leadership Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Leader 1 - Pradeep Babu T */}
-            <div className="group">
+          <div className="flex justify-center">
+            {/* Leader - Pradeep */}
+            <div className="group max-w-md">
               <div className="relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 {/* Image Container */}
                 <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-green-50 to-emerald-100">
@@ -288,7 +288,7 @@ function AboutPage() {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-serif font-bold text-gray-900 mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        Pradeep Babu T
+                        Pradeep
                       </h3>
                       <p className="text-green-600 font-semibold">Business Head</p>
                     </div>
@@ -303,94 +303,6 @@ function AboutPage() {
                   </div>
                   <p className="text-gray-600 leading-relaxed text-sm">
                     With nearly 16 years of extensive experience in financial services and business development, Pradeep leads our strategic initiatives and client relationships. His expertise in crafting tailored financial solutions has been instrumental in helping businesses achieve sustainable growth.
-                  </p>
-                </div>
-
-                {/* Decorative Element */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-green-200/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-            </div>
-
-            {/* Leader 2 - Placeholder */}
-            <div className="group">
-              <div className="relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                {/* Image Container */}
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-emerald-50 to-green-100">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl font-serif text-emerald-600/20" style={{ fontFamily: "'Playfair Display', serif" }}>TL</div>
-                  </div>
-                  {/* Image placeholder - replace src with actual image */}
-                  <img 
-                    src="/api/placeholder/400/400" 
-                    alt="Team Leader" 
-                    className="w-full h-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-serif font-bold text-gray-900 mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        Team Leader Name
-                      </h3>
-                      <p className="text-green-600 font-semibold">Operations Head</p>
-                    </div>
-                    <a 
-                      href="#" 
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-50 to-green-100 flex items-center justify-center hover:scale-110 transition-transform duration-300 group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Linkedin className="w-5 h-5 text-emerald-600" />
-                    </a>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    With extensive experience in operational excellence and process optimization, our Operations Head ensures seamless service delivery and maintains the highest standards of client satisfaction across all touchpoints.
-                  </p>
-                </div>
-
-                {/* Decorative Element */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-200/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-            </div>
-
-            {/* Leader 3 - Placeholder */}
-            <div className="group">
-              <div className="relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                {/* Image Container */}
-                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-green-50 via-emerald-50 to-green-100">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl font-serif text-green-600/20" style={{ fontFamily: "'Playfair Display', serif" }}>FM</div>
-                  </div>
-                  {/* Image placeholder - replace src with actual image */}
-                  <img 
-                    src="/api/placeholder/400/400" 
-                    alt="Financial Manager" 
-                    className="w-full h-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-serif font-bold text-gray-900 mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                        Financial Manager Name
-                      </h3>
-                      <p className="text-green-600 font-semibold">Financial Strategist</p>
-                    </div>
-                    <a 
-                      href="#" 
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center hover:scale-110 transition-transform duration-300 group"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Linkedin className="w-5 h-5 text-green-600" />
-                    </a>
-                  </div>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    Bringing deep expertise in financial analysis and strategic planning, our Financial Strategist develops innovative solutions that help businesses optimize their financial performance and achieve long-term sustainability.
                   </p>
                 </div>
 

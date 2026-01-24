@@ -91,7 +91,7 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-24 md:py-32 bg-white overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-24 md:py-32 bg-white overflow-hidden">
         {/* Grid Background Pattern */}
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
         
