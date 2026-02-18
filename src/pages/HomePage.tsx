@@ -66,25 +66,25 @@ function HomePage() {
 
   const testimonials = [
     {
-      initials: 'JS',
-      name: 'John Smith',
-      role: 'CEO, Manufacturing Firm',
-      quote:
-        'CBS Groups has been instrumental in helping us achieve our financial goals. Their expertise and dedication are unmatched. The entire process felt transparent, simple, and designed around our growth.',
-    },
-    {
-      initials: 'EJ',
-      name: 'Emily Johnson',
-      role: 'Marketing Manager, Retail Brand',
-      quote:
-        'Working with Chetana Business Solutions has been a game-changer. Their team understood our capital needs quickly and structured a solution that helped us scale without disrupting cash flow.',
-    },
-    {
-      initials: 'RK',
+      image: 'https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?w=100&h=100&fit=crop',
       name: 'Rajesh Kumar',
-      role: 'Founder, Logistics Startup',
+      role: 'CEO, Manufacturing Unit',
       quote:
-        'They helped us design a funding structure that matched our cash cycles. We could focus on expansion while they handled the complexity of finance.',
+        'CBS Groups helped us secure working capital within 48 hours. Their expertise and personalized approach made the entire process seamless.',
+    },
+    {
+      image: 'https://images.pexels.com/photos/7580937/pexels-photo-7580937.jpeg?w=100&h=100&fit=crop',
+      name: 'Priya Sharma',
+      role: 'Founder, Retail Chain',
+      quote:
+        'The MSME loan we received through CBS was a game-changer. They understood our business needs and structured a solution that helped us expand to 5 new locations.',
+    },
+    {
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=100&h=100&fit=crop',
+      name: 'Amit Patel',
+      role: 'Director, Logistics Company',
+      quote:
+        'Professional, transparent, and result-oriented. CBS Groups truly acts as a partner in growth. Their team guided us through every step of the loan process.',
     },
   ];
 
@@ -119,16 +119,16 @@ function HomePage() {
                 {/* Profile Images */}
                 <div className="flex -space-x-3">
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
+                    <img src="https://images.pexels.com/photos/6771204/pexels-photo-6771204.jpeg?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
+                    <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
+                    <img src="https://images.pexels.com/photos/7580937/pexels-photo-7580937.jpeg?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden flex-shrink-0 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
+                    <img src="https://images.pexels.com/photos/7580994/pexels-photo-7580994.jpeg?w=100&h=100&fit=crop" alt="Customer" className="w-full h-full object-cover" />
                   </div>
                 </div>
                 
@@ -651,8 +651,8 @@ function HomePage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-700">
-                    {testimonials[testimonialIndex].initials}
-                  </div>
+                      {testimonials[testimonialIndex].name.split(' ').map(n => n[0]).join('')}
+                    </div>
                   <div>
                     <div className="font-semibold text-gray-900">
                       {testimonials[testimonialIndex].name}

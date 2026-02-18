@@ -1,4 +1,4 @@
-import { Calendar, User, ArrowRight, Sparkles } from 'lucide-react';
+import { Calendar, User, Sparkles } from 'lucide-react';
 
 function BlogPage() {
   const blogPosts = [
@@ -118,25 +118,13 @@ function BlogPage() {
                   <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <User className="w-4 h-4" />
-                      <span>{post.author}</span>
-                    </div>
-                    <button className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all duration-300 group/btn">
-                      Read <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                  <div className="flex items-center gap-2 text-sm text-gray-600 pt-4 border-t border-gray-100">
+                    <User className="w-4 h-4" />
+                    <span>{post.author}</span>
                   </div>
                 </div>
               </article>
             ))}
-          </div>
-
-          {/* Load More Button */}
-          <div className="text-center mt-16">
-            <button className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-green-600 text-green-600 rounded-full font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 hover:shadow-xl hover:scale-105">
-              Load More Articles
-            </button>
           </div>
         </div>
       </section>
