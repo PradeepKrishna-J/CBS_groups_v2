@@ -184,8 +184,9 @@ export function LoanCalculator() {
             <div className="space-y-6">
               {/* Loan Amount */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
-                  Loan Amount
+                <label className="flex justify-between items-center mb-3">
+                  <span className="text-sm font-semibold text-gray-700">Loan Amount</span>
+                  <span className="text-lg md:text-xl font-bold text-brand">{formatCurrency(loanDetails.principal)}</span>
                 </label>
                 <input
                   type="range"
@@ -196,7 +197,7 @@ export function LoanCalculator() {
                   onChange={(e) =>
                     setLoanDetails({ ...loanDetails, principal: Number(e.target.value) })
                   }
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand"
+                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand"
                 />
                 <div className="flex justify-between items-center mt-3">
                   <input
@@ -205,16 +206,17 @@ export function LoanCalculator() {
                     onChange={(e) =>
                       setLoanDetails({ ...loanDetails, principal: Number(e.target.value) })
                     }
-                    className="w-32 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand"
+                    className="w-32 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand text-sm md:text-base"
                   />
-                  <span className="text-sm text-gray-500">₹1L - ₹1Cr</span>
+                  <span className="text-xs md:text-sm text-gray-500">₹1L - ₹1Cr</span>
                 </div>
               </div>
 
               {/* Interest Rate */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
-                  Interest Rate (% p.a.)
+                <label className="flex justify-between items-center mb-3">
+                  <span className="text-sm font-semibold text-gray-700">Interest Rate (p.a.)</span>
+                  <span className="text-lg md:text-xl font-bold text-brand">{loanDetails.interestRate}%</span>
                 </label>
                 <input
                   type="range"
@@ -225,7 +227,7 @@ export function LoanCalculator() {
                   onChange={(e) =>
                     setLoanDetails({ ...loanDetails, interestRate: Number(e.target.value) })
                   }
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand"
+                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand"
                 />
                 <div className="flex justify-between items-center mt-3">
                   <input
@@ -235,16 +237,17 @@ export function LoanCalculator() {
                       setLoanDetails({ ...loanDetails, interestRate: Number(e.target.value) })
                     }
                     step="0.1"
-                    className="w-32 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand"
+                    className="w-32 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand text-sm md:text-base"
                   />
-                  <span className="text-sm text-gray-500">5% - 30%</span>
+                  <span className="text-xs md:text-sm text-gray-500">5% - 30%</span>
                 </div>
               </div>
 
               {/* Loan Tenure */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
-                  Loan Tenure (Months)
+                <label className="flex justify-between items-center mb-3">
+                  <span className="text-sm font-semibold text-gray-700">Loan Tenure</span>
+                  <span className="text-lg md:text-xl font-bold text-brand">{Math.floor(loanDetails.tenure / 12)}Y {loanDetails.tenure % 12}M</span>
                 </label>
                 <input
                   type="range"
@@ -255,7 +258,7 @@ export function LoanCalculator() {
                   onChange={(e) =>
                     setLoanDetails({ ...loanDetails, tenure: Number(e.target.value) })
                   }
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand"
+                  className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand"
                 />
                 <div className="flex justify-between items-center mt-3">
                   <div className="relative w-32">
@@ -265,13 +268,13 @@ export function LoanCalculator() {
                       onChange={(e) =>
                         setLoanDetails({ ...loanDetails, tenure: Number(e.target.value) })
                       }
-                      className="w-full px-4 py-2 pr-16 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand"
+                      className="w-full px-4 py-2 pr-16 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand text-sm md:text-base"
                     />
-                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 pointer-events-none">
+                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs md:text-sm text-gray-500 pointer-events-none">
                       Months
                     </span>
                   </div>
-                  <span className="text-sm text-gray-500">
+                  <span className="text-xs md:text-sm text-gray-500">
                     {Math.floor(loanDetails.tenure / 12)}Y {loanDetails.tenure % 12}M
                   </span>
                 </div>
@@ -319,15 +322,15 @@ export function LoanCalculator() {
 
           {/* Right Panel - Results */}
           <div className="lg:col-span-2 space-y-6">
-            {/* EMI Cards */}
-            <div className="hidden md:grid md:grid-cols-3 gap-6">
+            {/* EMI Cards - Mobile Optimized */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {/* Monthly EMI */}
               <div className="bg-gradient-to-br from-brand to-blue-700 rounded-3xl p-6 text-white shadow-xl">
                 <div className="flex items-center gap-2 mb-3">
                   <TrendingUp className="w-4 h-4" />
                   <span className="text-xs font-medium opacity-90">Monthly EMI</span>
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2 break-words whitespace-nowrap overflow-hidden text-ellipsis">{formatCurrency(emi)}</div>
+                <div className="text-2xl md:text-3xl font-bold mb-2">{formatCurrency(emi)}</div>
                 <div className="text-xs opacity-80">
                   For {Math.floor(loanDetails.tenure / 12)} years {loanDetails.tenure % 12} months
                 </div>
@@ -339,7 +342,7 @@ export function LoanCalculator() {
                   <PieChart className="w-4 h-4" />
                   <span className="text-xs font-medium opacity-90">Total Interest</span>
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2 break-words whitespace-nowrap overflow-hidden text-ellipsis">{formatCurrency(totalInterest)}</div>
+                <div className="text-2xl md:text-3xl font-bold mb-2">{formatCurrency(totalInterest)}</div>
                 <div className="text-xs opacity-80">
                   {interestPercentage.toFixed(1)}% of total amount
                 </div>
@@ -351,7 +354,7 @@ export function LoanCalculator() {
                   <BarChart3 className="w-4 h-4" />
                   <span className="text-xs font-medium opacity-90">Total Payment</span>
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2 break-words whitespace-nowrap overflow-hidden text-ellipsis">{formatCurrency(totalAmount)}</div>
+                <div className="text-2xl md:text-3xl font-bold mb-2">{formatCurrency(totalAmount)}</div>
                 <div className="text-xs opacity-80">Principal + Interest</div>
               </div>
             </div>

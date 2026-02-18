@@ -1,14 +1,35 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Building2, PiggyBank, Calculator, Phone, Mail, CheckCircle2, Star, ArrowRight, MapPin, Twitter, Linkedin, Facebook, Users } from 'lucide-react';
+import { TrendingUp, Building2, Phone, CheckCircle2, Star, ArrowRight, ArrowUp, Briefcase, CreditCard, Zap } from 'lucide-react';
 import { SplitText } from '../components/SplitText';
 import { LoanCalculator } from '../components/LoanCalculator';
 import heroImage from '../assets/images/CBS_mockup_image.png';
+
+// Loading Image Component
+const LoadingImage = ({ src, alt, className, style }: { src: string; alt: string; className: string; style?: React.CSSProperties }) => {
+  const [loading, setLoading] = useState(true);
+  
+  return (
+    <div className="relative">
+      {loading && (
+        <div className={`${className} bg-gray-200 animate-pulse`} style={style}></div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} ${loading ? 'absolute inset-0 opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        style={style}
+        onLoad={() => setLoading(false)}
+      />
+    </div>
+  );
+};
 
 function HomePage() {
   const [counters, setCounters] = useState({ years: 0, clients: 0, projects: 0, revenue: 0 });
   const [hasAnimated, setHasAnimated] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,6 +55,15 @@ function HomePage() {
       }
     };
   }, [hasAnimated]);
+
+  // Scroll to top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const animateCounters = () => {
     const targets = { years: 10, clients: 3000, projects: 2500, revenue: 10 };
@@ -155,7 +185,7 @@ function HomePage() {
             <div className="relative flex justify-center items-center animate-fade-in-up min-h-[450px] md:min-h-[550px]" style={{ animationDelay: '800ms' }}>
               {/* Main Image - Person with Phone */}
               <div className="relative w-full max-w-md mx-auto">
-                <img 
+                <LoadingImage 
                   src={heroImage} 
                   alt="Business Professional" 
                   className="w-full h-auto object-contain drop-shadow-2xl"
@@ -191,6 +221,48 @@ function HomePage() {
             <div className="text-2xl font-bold">SME</div>
             <div className="text-2xl font-bold">ENTERPRISES</div>
           </div>
+        </div>
+      </section>
+
+      {/* Quick Loan Selector - Mobile Only */}
+      <section className="md:hidden py-8 px-4 bg-gradient-to-br from-green-50 to-blue-50">
+        <h3 className="text-xl font-bold text-gray-900 mb-4 px-2">Quick Access to Loans</h3>
+        <div className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+          <Link to="/msme-loans" className="snap-start flex-shrink-0 w-36 p-4 bg-white rounded-2xl shadow-md active:scale-95 transition-transform">
+            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-3">
+              <Building2 className="w-6 h-6 text-green-600" />
+            </div>
+            <div className="text-sm font-semibold text-gray-900">MSME Loans</div>
+            <div className="text-xs text-gray-500 mt-1">Up to ₹50L</div>
+          </Link>
+          <Link to="/working-capital" className="snap-start flex-shrink-0 w-36 p-4 bg-white rounded-2xl shadow-md active:scale-95 transition-transform">
+            <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-3">
+              <TrendingUp className="w-6 h-6 text-teal-600" />
+            </div>
+            <div className="text-sm font-semibold text-gray-900">Working Capital</div>
+            <div className="text-xs text-gray-500 mt-1">Up to ₹2Cr</div>
+          </Link>
+          <Link to="/business-loans" className="snap-start flex-shrink-0 w-36 p-4 bg-white rounded-2xl shadow-md active:scale-95 transition-transform">
+            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-3">
+              <Briefcase className="w-6 h-6 text-blue-600" />
+            </div>
+            <div className="text-sm font-semibold text-gray-900">Business Loans</div>
+            <div className="text-xs text-gray-500 mt-1">Up to ₹5Cr</div>
+          </Link>
+          <Link to="/personal-loan" className="snap-start flex-shrink-0 w-36 p-4 bg-white rounded-2xl shadow-md active:scale-95 transition-transform">
+            <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-3">
+              <CreditCard className="w-6 h-6 text-rose-600" />
+            </div>
+            <div className="text-sm font-semibold text-gray-900">Personal Loan</div>
+            <div className="text-xs text-gray-500 mt-1">Up to ₹25L</div>
+          </Link>
+          <Link to="/cgtmse-loan" className="snap-start flex-shrink-0 w-36 p-4 bg-white rounded-2xl shadow-md active:scale-95 transition-transform">
+            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-3">
+              <Zap className="w-6 h-6 text-purple-600" />
+            </div>
+            <div className="text-sm font-semibold text-gray-900">CGTMSE Loan</div>
+            <div className="text-xs text-gray-500 mt-1">Collateral Free</div>
+          </Link>
         </div>
       </section>
 
@@ -748,6 +820,41 @@ function HomePage() {
       </section>
 
       {/* Footer */}
+
+      {/* Sticky Bottom CTA Bar - Mobile Only */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl p-4 z-50" style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}>
+        <div className="flex gap-3">
+          <a 
+            href="tel:+919841078770" 
+            className="flex-1 bg-green-600 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-lg"
+          >
+            <Phone className="w-5 h-5" />
+            Call Now
+          </a>
+          <a 
+            href="https://wa.me/919841078770" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 bg-[#25D366] text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-lg"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 448 512">
+              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll to Top Button - Mobile Only */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="md:hidden fixed bottom-24 right-4 z-40 w-12 h-12 bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
 
     </div>
   );

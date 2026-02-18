@@ -1,0 +1,17 @@
+{
+  "name": "CBS Groups - Business Loans & Financial Solutions",
+  "short_name": "CBS Groups",
+  "description": "Quick business loans, MSME loans, working capital and financial solutions for your business growth",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#059669",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
