@@ -760,13 +760,13 @@ function HomePage() {
             </p>
 
             {/* Large Contact Icons */}
-            <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-              {/* WhatsApp */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+              {/* WhatsApp - Hidden on mobile */}
               <a 
                 href="https://wa.me/919841078770" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-4 p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-green-500 hover:shadow-xl transition-all duration-300"
+                className="hidden md:flex group flex-col items-center gap-4 p-8 bg-white rounded-3xl border-2 border-gray-200 hover:border-green-500 hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-24 h-24 bg-[#25D366] rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-14 h-14 text-white" fill="currentColor" viewBox="0 0 448 512">

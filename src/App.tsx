@@ -35,7 +35,7 @@ function App() {
       <Footer />
       <a
         href="https://wa.me/919841078770"
-        className="fixed bottom-8 right-8 z-50 rounded-full hover:scale-105 transition-transform"
+        className="hidden md:block fixed bottom-8 right-8 z-50 rounded-full hover:scale-105 transition-transform"
         target="_blank"
         rel="noopener noreferrer"
       >
