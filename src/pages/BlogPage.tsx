@@ -18,7 +18,7 @@ function BlogPage() {
       excerpt: "Discover effective strategies for managing working capital to ensure smooth operations and sustainable business growth.",
       author: "Financial Team",
       date: "December 10, 2024",
-      image: "https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=800",
       category: "Finance"
     },
     {

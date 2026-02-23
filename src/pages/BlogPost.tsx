@@ -670,7 +670,7 @@ const allBlogs: BlogData[] = [
     author: "Financial Team",
     date: "December 10, 2024",
     readTime: "13 min read",
-    image: "https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    image: "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=1400",
     category: "Finance",
     sections: [
       { id: "introduction", title: "Introduction" },
