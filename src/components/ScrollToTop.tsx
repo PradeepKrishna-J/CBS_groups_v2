@@ -6,11 +6,17 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      // Let the browser handle hash scrolling
-      setTimeout(() => {
-        const el = document.getElementById(hash.replace('#', ''));
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      // Give the page time to fully render before scrolling
+      const id = hash.replace('#', '');
+      const attempt = (tries: number) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (tries > 0) {
+          setTimeout(() => attempt(tries - 1), 150);
+        }
+      };
+      setTimeout(() => attempt(5), 200);
     } else {
       window.scrollTo(0, 0);
     }
