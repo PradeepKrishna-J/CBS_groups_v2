@@ -878,7 +878,7 @@ function CTABox() {
             WhatsApp Us Now
           </a>
           <Link
-            to="/contact"
+            to="/#contact"
             className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl font-semibold text-xs text-white border border-white/30 hover:bg-white/20 active:scale-95 transition-all duration-200"
             style={{ background: "rgba(255,255,255,0.12)" }}
           >
