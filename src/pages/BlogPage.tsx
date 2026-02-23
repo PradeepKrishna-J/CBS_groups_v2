@@ -1,4 +1,5 @@
-import { Calendar, User, Sparkles } from 'lucide-react';
+import { Calendar, User, ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function BlogPage() {
   const blogPosts = [
@@ -89,9 +90,10 @@ function BlogPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <article 
-                key={post.id} 
-                className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in-up"
+              <Link
+                key={post.id}
+                to={`/blog/${post.id}`}
+                className="group block bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in-up cursor-pointer"
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
               >
                 <div className="aspect-video overflow-hidden relative">
@@ -118,12 +120,17 @@ function BlogPage() {
                   <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-600 pt-4 border-t border-gray-100">
-                    <User className="w-4 h-4" />
-                    <span>{post.author}</span>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <User className="w-4 h-4" />
+                      <span>{post.author}</span>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-green-600 font-semibold group-hover:gap-3 transition-all duration-300">
+                      Read More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

@@ -13,6 +13,7 @@ import ProjectFinance from './pages/ProjectFinance';
 import PersonalLoan from './pages/PersonalLoan';
 import CGTMSELoan from './pages/CGTMSELoan';
 import ChequeBasedLoans from './pages/ChequeBasedLoans';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/our-groups" element={<OurGroups />} />
         <Route path="/business-loans" element={<BusinessLoans />} />
         <Route path="/msme-loans" element={<MSMELoans />} />
