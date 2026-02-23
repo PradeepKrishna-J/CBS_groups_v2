@@ -272,14 +272,11 @@ function AboutPage() {
               <div className="relative overflow-hidden rounded-3xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                 {/* Image Container */}
                 <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-green-50 to-emerald-100">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-6xl font-serif text-green-600/20" style={{ fontFamily: "'Playfair Display', serif" }}>PB</div>
-                  </div>
-                  {/* Image placeholder - replace src with actual image */}
+                  {/* CEO image */}
                   <img 
-                    src="/api/placeholder/400/400" 
+                    src="https://ik.imagekit.io/pradeepkrishna07/cbsgroupsceo.png" 
                     alt="Pradeep Babu T" 
-                    className="w-full h-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
