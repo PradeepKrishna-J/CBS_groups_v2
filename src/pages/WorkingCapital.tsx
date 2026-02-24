@@ -5,7 +5,7 @@ function WorkingCapital() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
         {/* Decorative Elements */}
         <div className="absolute top-20 right-10 w-72 h-72 bg-green-100/40 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl"></div>

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Sparkles, CheckCircle, FileText, ArrowRight, Shield, Upload, FileCheck, CheckSquare, Banknote } from 'lucide-react';
+import { Sparkles, CheckCircle, FileText, ArrowRight, Shield, Upload, FileCheck, CheckSquare, Banknote, Clock, TrendingUp } from 'lucide-react';
 
 function PersonalLoan() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
         {/* Decorative Elements */}
         <div className="absolute top-20 right-10 w-72 h-72 bg-green-100/40 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl"></div>
@@ -20,7 +20,7 @@ function PersonalLoan() {
               </div>
               
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-gray-900 animate-slide-in-left delay-100">
-                Personal Loans
+                Personal Loansr
               </h1>
               
               <p className="text-lg text-gray-600 mb-8 leading-relaxed animate-slide-in-left delay-200">
@@ -76,12 +76,12 @@ function PersonalLoan() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Banknote, title: 'Quick Funds', desc: 'Get loan amount up to ₹25 Lakh disbursed within 24 hours', color: 'blue' },
-              { icon: Clock, title: 'Flexible Tenure', desc: 'Choose repayment period from 12 to 60 months', color: 'green' },
-              { icon: TrendingUp, title: 'Low Interest', desc: 'Competitive rates starting from 11% p.a.', color: 'purple' },
-              { icon: FileText, title: 'Minimal Docs', desc: 'Simple documentation process for quick approval', color: 'orange' },
-              { icon: Shield, title: 'No Restrictions', desc: 'Use funds for any personal need without restrictions', color: 'teal' },
-              { icon: CheckCircle, title: 'Fast Approval', desc: 'Get approved and disbursed within hours', color: 'pink' }
+              { icon: Banknote, title: 'Quick Funds', desc: 'Get loan amount up to ₹25 Lakh disbursed within 24 hours', color: 'blue' as const },
+              { icon: Clock, title: 'Flexible Tenure', desc: 'Choose repayment period from 12 to 60 months', color: 'green' as const },
+              { icon: TrendingUp, title: 'Low Interest', desc: 'Competitive rates starting from 11% p.a.', color: 'purple' as const },
+              { icon: FileText, title: 'Minimal Docs', desc: 'Simple documentation process for quick approval', color: 'orange' as const },
+              { icon: Shield, title: 'No Restrictions', desc: 'Use funds for any personal need without restrictions', color: 'teal' as const },
+              { icon: CheckCircle, title: 'Fast Approval', desc: 'Get approved and disbursed within hours', color: 'pink' as const }
             ].map((feature, index) => {
               const colorClasses = {
                 blue: 'bg-blue-50 border-blue-200',

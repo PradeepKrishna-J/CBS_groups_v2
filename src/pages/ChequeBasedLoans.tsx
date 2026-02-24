@@ -5,7 +5,7 @@ function ChequeBasedLoans() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
         {/* Grid Background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
         

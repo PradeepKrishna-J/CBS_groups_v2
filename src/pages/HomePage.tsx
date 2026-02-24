@@ -2,28 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { TrendingUp, Building2, Phone, CheckCircle2, Star, ArrowRight, ArrowUp, Briefcase, CreditCard, Zap } from 'lucide-react';
 import { SplitText } from '../components/SplitText';
-import { LoanCalculator } from '../components/LoanCalculator';
-import heroImage from '../assets/images/CBS_mockup_image.png';
-
-// Loading Image Component
-const LoadingImage = ({ src, alt, className, style }: { src: string; alt: string; className: string; style?: React.CSSProperties }) => {
-  const [loading, setLoading] = useState(true);
-  
-  return (
-    <div className="relative">
-      {loading && (
-        <div className={`${className} bg-gray-200 animate-pulse`} style={style}></div>
-      )}
-      <img
-        src={src}
-        alt={alt}
-        className={`${className} ${loading ? 'absolute inset-0 opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-        style={style}
-        onLoad={() => setLoading(false)}
-      />
-    </div>
-  );
-};
 
 function HomePage() {
   const [counters, setCounters] = useState({ years: 0, clients: 0, projects: 0, revenue: 0 });
@@ -31,6 +9,18 @@ function HomePage() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
+
+  // Form state
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    loanType: '',
+    loanAmount: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -94,6 +84,57 @@ function HomePage() {
     animate();
   };
 
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/submit-enquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          submittedAt: new Date().toISOString()
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setSubmitMessage('Thank you! Your enquiry has been submitted successfully. We\'ll contact you within 24 hours.');
+        // Reset form
+        setFormData({
+          fullName: '',
+          phone: '',
+          email: '',
+          loanType: '',
+          loanAmount: ''
+        });
+        // Clear success message after 5 seconds
+        setTimeout(() => setSubmitStatus('idle'), 5000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setSubmitMessage('Failed to submit enquiry. Please try again or call us directly at +91 9841078770');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const testimonials = [
     {
       image: 'https://images.pexels.com/photos/6801642/pexels-photo-6801642.jpeg?w=100&h=100&fit=crop',
@@ -121,7 +162,7 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-24 md:py-32 bg-white overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-40 pb-24 md:pt-40 bg-white overflow-hidden">
         {/* Grid Background Pattern */}
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f0d_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0d_1px,transparent_1px)] bg-[size:18px_18px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_50%,transparent_100%)]"></div>
         
@@ -181,29 +222,134 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Right Side - Image with Floating Widget */}
-            <div className="relative flex justify-center items-center animate-fade-in-up min-h-[450px] md:min-h-[550px]" style={{ animationDelay: '800ms' }}>
-              {/* Main Image - Person with Phone */}
-              <div className="relative w-full max-w-md mx-auto">
-                <LoadingImage 
-                  src={heroImage} 
-                  alt="Business Professional" 
-                  className="w-full h-auto object-contain drop-shadow-2xl"
-                />
-
-                {/* Floating Widget - Loan Approved */}
-                <div className="absolute bottom-3 left-0 md:left-3 lg:left-6 bg-white rounded-2xl p-4 shadow-2xl animate-float max-w-[220px]" style={{ animationDelay: '0.5s' }}>
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-9 h-9 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+            {/* Right Side - Quick Loan Enquiry Form */}
+            <div className="relative animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl border-2 border-gray-200 shadow-2xl p-8 relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"></div>
+                
+                <div className="relative z-10">
+                  {/* Form Header */}
+                  <div className="mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-100 rounded-full mb-3">
+                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                      <span className="text-xs font-semibold text-green-700">Quick Approval</span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-[rgb(6,27,68)] text-sm font-bold">Loan Approved!</div>
-                      <div className="text-gray-500 text-[10px]">Business Loan</div>
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Loan Quote</h3>
+                    <p className="text-sm text-gray-600">Fill in your details and we'll get back to you within 24 hours</p>
                   </div>
-                  <div className="text-[rgb(6,27,68)] text-xl md:text-2xl font-bold mb-1">₹25,00,000</div>
-                  <div className="text-gray-400 text-[10px]">Disbursed in 48 hours</div>
+
+                  {/* Form */}
+                  <form className="space-y-4" onSubmit={handleFormSubmit}>
+                    {/* Name */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        placeholder="Enter your full name"
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                        required
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Enter your phone number"
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                        required
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="your.email@example.com"
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    {/* Loan Type */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Loan Type *</label>
+                      <select
+                        name="loanType"
+                        value={formData.loanType}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all appearance-none cursor-pointer"
+                        required
+                        disabled={isSubmitting}
+                      >
+                        <option value="">Select loan type</option>
+                        <option value="business">Business Loan</option>
+                        <option value="msme">MSME Loan</option>
+                        <option value="working-capital">Working Capital</option>
+                        <option value="project-finance">Project Finance</option>
+                        <option value="personal">Personal Loan</option>
+                        <option value="cgtmse">CGTMSE Loan</option>
+                        <option value="cheque-based">Cheque Based Loan</option>
+                      </select>
+                    </div>
+
+                    {/* Loan Amount */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Loan Amount Required</label>
+                      <input
+                        type="text"
+                        name="loanAmount"
+                        value={formData.loanAmount}
+                        onChange={handleInputChange}
+                        placeholder="₹ 10,00,000"
+                        className="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                        disabled={isSubmitting}
+                      />
+                    </div>
+
+                    {/* Success/Error Messages */}
+                    {submitStatus === 'success' && (
+                      <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
+                        <p className="text-sm text-green-700 font-medium">{submitMessage}</p>
+                      </div>
+                    )}
+                    {submitStatus === 'error' && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                        <p className="text-sm text-red-700 font-medium">{submitMessage}</p>
+                      </div>
+                    )}
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+
+                    {/* Trust Badge */}
+                    <div className="flex items-center justify-center gap-2 pt-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                      <span className="text-xs text-gray-600">100% Secure & Confidential</span>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -568,9 +714,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Loan Calculator Section */}
-      <LoanCalculator />
 
       {/* Why Choose Us */}
       <section className="py-20 bg-gray-100">

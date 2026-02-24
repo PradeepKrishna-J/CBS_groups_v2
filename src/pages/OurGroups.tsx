@@ -2,7 +2,7 @@ import { ExternalLink } from 'lucide-react';
 
 function OurGroups() {
   return (
-    <div className="min-h-screen bg-white pt-32 pb-20">
+    <div className="min-h-screen bg-white pt-40 pb-20">
       <div className="max-w-7xl mx-auto container-px">
         {/* Header */}
         <div className="text-center mb-16">

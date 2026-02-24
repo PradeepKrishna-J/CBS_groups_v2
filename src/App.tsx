@@ -14,6 +14,7 @@ import PersonalLoan from './pages/PersonalLoan';
 import CGTMSELoan from './pages/CGTMSELoan';
 import ChequeBasedLoans from './pages/ChequeBasedLoans';
 import BlogPost from './pages/BlogPost';
+import EMICalculator from './pages/EMICalculator';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/personal-loan" element={<PersonalLoan />} />
         <Route path="/cgtmse-loan" element={<CGTMSELoan />} />
         <Route path="/cheque-based-loans" element={<ChequeBasedLoans />} />
+        <Route path="/emi-calculator" element={<EMICalculator />} />
       </Routes>
       <Footer />
       <a

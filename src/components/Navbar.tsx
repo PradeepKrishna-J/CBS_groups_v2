@@ -1,133 +1,204 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Phone, Mail } from 'lucide-react';
 
 function Navbar() {
-  const [isLoansDropdownOpen, setIsLoansDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-      <div className="bg-white backdrop-blur-md border border-gray-200/50 rounded-full shadow-lg px-8 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-4">
-          <img src="https://lh3.googleusercontent.com/p/AF1QipNzpQtjnPBu9klz6AL2U7Nk4rZJIZbEXbKZvpxC=s1360-w1360-h1020-rw" alt="CBS Groups Logo" className="h-12 w-auto object-contain" style={{objectPosition: 'center', imageRendering: 'crisp-edges'}} />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-gray-900 leading-tight">Chetana Business Solutions</span>
-            <span className="text-[10px] text-gray-600 font-medium leading-tight">EMPOWERING ENTREPRENEURS</span>
+    <>
+      {/* Top Contact Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-2">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 md:gap-4 text-sm">
+            {/* Contact Number */}
+            <a href="tel:+919841078770" className="flex items-center gap-2 hover:text-green-200 transition-colors">
+              <Phone className="w-4 h-4" />
+              <span className="font-medium">+91 9841078770</span>
+            </a>
+            
+            {/* Email */}
+            <a href="mailto:pradeep@cbsgroups.in" className="flex items-center gap-2 hover:text-green-200 transition-colors">
+              <Mail className="w-4 h-4" />
+              <span className="font-medium">pradeep@cbsgroups.in</span>
+            </a>
           </div>
-        </Link>
-        
-        <div className="hidden md:flex gap-8 text-gray-700 font-medium items-center">
-          <Link to="/" className="hover:text-gray-900 transition-colors">Home</Link>
-          <Link to="/about" className="hover:text-gray-900 transition-colors">About Us</Link>
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsLoansDropdownOpen(true)}
-            onMouseLeave={() => setIsLoansDropdownOpen(false)}
-          >
-            <button 
-              className="flex items-center gap-1 hover:text-gray-900 transition-colors"
-              onClick={() => setIsLoansDropdownOpen(!isLoansDropdownOpen)}
-            >
-              Loans <ChevronDown className={`w-4 h-4 transition-transform ${isLoansDropdownOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {isLoansDropdownOpen && (
-              <div 
-                className="absolute top-full left-0 pt-3 bg-transparent"
-                onMouseEnter={() => setIsLoansDropdownOpen(true)}
-                onMouseLeave={() => setIsLoansDropdownOpen(false)}
-              >
-                <div className="bg-white backdrop-blur-md rounded-2xl shadow-xl py-4 px-6 min-w-[240px] border border-gray-200/50">
-                  <Link to="/business-loans" className="block py-2 hover:text-blue-600 transition-colors">Business Loans</Link>
-                  <Link to="/msme-loans" className="block py-2 hover:text-blue-600 transition-colors">MSME Loans</Link>
-                  <Link to="/working-capital" className="block py-2 hover:text-blue-600 transition-colors">Working Capital</Link>
-                  <Link to="/project-finance" className="block py-2 hover:text-blue-600 transition-colors">Project Finance</Link>
-                  <Link to="/personal-loan" className="block py-2 hover:text-blue-600 transition-colors">Personal Loan</Link>
-                  <Link to="/cgtmse-loan" className="block py-2 hover:text-blue-600 transition-colors">CGTMSE Loan</Link>
-                  <Link to="/cheque-based-loans" className="block py-2 hover:text-blue-600 transition-colors">Cheque Based Loans</Link>
-                </div>
-              </div>
-            )}
-          </div>
-          <Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link>
-          <Link to="/our-groups" className="hover:text-gray-900 transition-colors">Our Groups</Link>
         </div>
-        
-        <a href="/#contact" className="hidden md:block border-2 border-gray-900 text-gray-900 font-medium px-6 py-2.5 rounded-full hover:bg-gray-900 hover:text-white transition-all">Get Started</a>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-900"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
-      
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 mt-2 bg-white backdrop-blur-md border border-gray-200/50 rounded-3xl shadow-2xl p-6 animate-fade-in-up">
-          <div className="flex flex-col gap-3 text-gray-700 font-medium">
-            <Link to="/" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all" onClick={() => setIsMobileMenuOpen(false)}>
-              <span className="w-2 h-2 rounded-full bg-green-500"></span>
+
+      {/* Main Navbar */}
+      <nav className="fixed top-10 left-0 right-0 z-40 bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3">
+            <img 
+              src="https://lh3.googleusercontent.com/p/AF1QipNzpQtjnPBu9klz6AL2U7Nk4rZJIZbEXbKZvpxC=s1360-w1360-h1020-rw" 
+              alt="CBS Groups Logo" 
+              className="h-12 w-auto object-contain" 
+            />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-gray-900 leading-tight">Chetana Business Solutions</span>
+              <span className="text-[10px] text-gray-600 font-medium leading-tight">EMPOWERING ENTREPRENEURS</span>
+            </div>
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
+            <Link to="/" className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
               Home
             </Link>
-            <Link to="/about" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all" onClick={() => setIsMobileMenuOpen(false)}>
-              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+            
+            <Link to="/about" className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
               About Us
             </Link>
             
-            <div className="border-t border-gray-200 mt-2 pt-4 pb-2">
-              <div className="flex items-center gap-2 px-4 mb-3">
-                <span className="text-sm font-bold text-gray-900">Loans</span>
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">7</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <Link to="/business-loans" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600 transition-all">BL</span>
+            {/* Loans Dropdown */}
+            <div 
+              className="relative group"
+            >
+              <button className="flex items-center gap-1 text-gray-700 font-medium hover:text-blue-600 transition-colors">
+                Loans <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-2xl border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link to="/business-loans" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   Business Loans
                 </Link>
-                <Link to="/msme-loans" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-green-50 hover:text-green-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-green-50 group-hover:bg-green-100 flex items-center justify-center text-xs font-bold text-green-600 transition-all">MS</span>
+                <Link to="/msme-loans" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   MSME Loans
                 </Link>
-                <Link to="/working-capital" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-teal-50 hover:text-teal-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-teal-50 group-hover:bg-teal-100 flex items-center justify-center text-xs font-bold text-teal-600 transition-all">WC</span>
+                <Link to="/working-capital" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   Working Capital
                 </Link>
-                <Link to="/project-finance" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-indigo-50 hover:text-indigo-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-indigo-50 group-hover:bg-indigo-100 flex items-center justify-center text-xs font-bold text-indigo-600 transition-all">PF</span>
+                <Link to="/project-finance" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   Project Finance
                 </Link>
-                <Link to="/personal-loan" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-purple-50 hover:text-purple-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-purple-50 group-hover:bg-purple-100 flex items-center justify-center text-xs font-bold text-purple-600 transition-all">PL</span>
+                <Link to="/personal-loan" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   Personal Loan
                 </Link>
-                <Link to="/cgtmse-loan" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-orange-50 hover:text-orange-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center text-xs font-bold text-orange-600 transition-all">CG</span>
+                <Link to="/cgtmse-loan" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   CGTMSE Loan
                 </Link>
-                <Link to="/cheque-based-loans" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-50 hover:text-red-600 transition-all group" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="w-8 h-8 rounded-lg bg-red-50 group-hover:bg-red-100 flex items-center justify-center text-xs font-bold text-red-600 transition-all">CB</span>
+                <Link to="/cheque-based-loans" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                   Cheque Based Loans
                 </Link>
               </div>
             </div>
             
-            <Link to="/blog" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all" onClick={() => setIsMobileMenuOpen(false)}>
-              <span className="w-2 h-2 rounded-full bg-purple-500"></span>
+            <Link to="/emi-calculator" className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
+              EMI Calculator
+            </Link>
+            
+            <Link to="/blog" className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
               Blog
             </Link>
-            <Link to="/our-groups" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all" onClick={() => setIsMobileMenuOpen(false)}>
-              <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+            
+            <Link to="/our-groups" className="text-gray-700 font-medium hover:text-blue-600 transition-colors">
               Our Groups
             </Link>
             
-            <a href="/#contact" className="mt-4 border-2 border-gray-900 text-gray-900 font-medium px-6 py-3 rounded-xl hover:bg-gray-900 hover:text-white transition-all text-center" onClick={() => setIsMobileMenuOpen(false)}>Get Started</a>
+            <a 
+              href="/#contact" 
+              className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all hover:shadow-lg"
+            >
+              Get Started
+            </a>
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="lg:hidden text-gray-900"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+      
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-200">
+          <div className="max-w-7xl mx-auto px-6 py-6 space-y-2">
+            <Link 
+              to="/" 
+              className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            
+            <Link 
+              to="/about" 
+              className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            
+            {/* Loans Section */}
+            <div className="pt-2">
+              <div className="px-4 py-2 text-sm font-bold text-gray-900">Loans</div>
+              <div className="space-y-1">
+                <Link to="/business-loans" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Business Loans
+                </Link>
+                <Link to="/msme-loans" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  MSME Loans
+                </Link>
+                <Link to="/working-capital" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Working Capital
+                </Link>
+                <Link to="/project-finance" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Project Finance
+                </Link>
+                <Link to="/personal-loan" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Personal Loan
+                </Link>
+                <Link to="/cgtmse-loan" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  CGTMSE Loan
+                </Link>
+                <Link to="/cheque-based-loans" className="block px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                  Cheque Based Loans
+                </Link>
+              </div>
+            </div>
+
+            <Link 
+              to="/emi-calculator" 
+              className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              EMI Calculator
+            </Link>
+            
+            <Link 
+              to="/blog" 
+              className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            
+            <Link 
+              to="/our-groups" 
+              className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Our Groups
+            </Link>
+            
+            <a 
+              href="/#contact" 
+              className="block mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all text-center" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Get Started
+            </a>
           </div>
         </div>
       )}
     </nav>
+    </>
   );
 }
 
